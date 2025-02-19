@@ -6,4 +6,6 @@ import DatePickerRange from "./modules/DatePickerRange/index.js";
 import TimePickerRange from "./modules/TimePickerRange/index.js";
 import Select from "./modules/Select/index.js";
 
+import './i18n';
+
 export { Table, Form, Tree, DatePicker, DatePickerRange, TimePickerRange, Select };

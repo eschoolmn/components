@@ -51,9 +51,6 @@ const Forms = (
 
     useEffect(() => {
         setFields(paramFields);
-        // if (paramFields?.length && !isEqual(paramFields, fields)) {
-        //     setFields(paramFields);
-        // }
     }, []);
 
     const onInputChange = (e, index, upperCase) => {
@@ -148,27 +145,27 @@ const Forms = (
                 let imageType = files[i].type;
                 if (imageSize > acceptedSize) {
                     clone[index].showErrorMessage = true;
-                    clone[index].errorMessage = t("newsfeed.fileSizeWarning");
+                    clone[index].errorMessage = t("file.sizeError");
                     setFields(clone);
                     isFalse = false;
                 }
 
                 if (!acceptedType.includes(imageType)) {
                     clone[index].showErrorMessage = true;
-                    clone[index].errorMessage = t("newsfeed.imageTypeError");
+                    clone[index].errorMessage = t("file.typeError");
                     setFields(clone);
                     isFalse = false;
 
                     if (clone[index].accept == "image/*") {
                         clone[index].showErrorMessage = true;
-                        clone[index].errorMessage = t("newsfeed.imageTypeImageError");
+                        clone[index].errorMessage = t("file.imageTypeError");
                         setFields(clone);
                         isFalse = false;
                     }
 
                     if (clone[index].accept == ".mp4,video/*") {
                         clone[index].showErrorMessage = true;
-                        clone[index].errorMessage = t("newsfeed.imageTypeVideoError");
+                        clone[index].errorMessage = t("file.videoTypeError");
                         setFields(clone);
                         isFalse = false;
                     }
@@ -437,7 +434,6 @@ const Forms = (
 
     const onKeyDown = (e, index) => {
         let lastValue = textRef?.current[index]?.lastHtml;
-        // let lastValue = textRef?.current.lastHtml
         let valueArray = lastValue.split(/<div ?\/?>/);
 
         if (e.shiftKey && e.which == 65) {
@@ -654,8 +650,6 @@ const Forms = (
                     <ResizeProvider>
                         <ResizeConsumer
                             className="resize-container mb-1"
-                            // onSizeChanged={handleSizeChanged}
-                            // updateDatasetBySize={getDatasetBySize}
                             style={{ width: 538 }}
                         >
                             <ContentEditable
@@ -723,10 +717,6 @@ const Forms = (
                     if (field.inputClassName) {
                         className += " " + field.inputClassName;
                     }
-                    // let placeholder = '-' + t('select') + '-'
-                    // if (field.placeholder) {
-                    //     placeholder = field.placeholder
-                    // }
                     let message = "";
                     let feedbackClassName = "";
                     let labelClassName = "col-form-label ";
@@ -1236,58 +1226,6 @@ const Forms = (
                             </div>
                         );
                     }
-                    // if (field.type === 'tableCell') {
-                    //     return (
-                    //         <td key={index} className={checkContainer(formContainerClassName, field.invisible)} style={{ display: 'flex', marginTop: '0.8rem' }}>
-                    //             <div
-                    //                 style={{
-                    //                     display: 'flex',
-                    //                     flex: field.inputWidth ? undefined : field?.inputFlex || 1,
-                    //                     flexDirection: 'column',
-                    //                     marginLeft: 24,
-                    //                     width: field?.inputWidth || 'auto',
-                    //                 }}
-                    //             >
-                    //                 <Dropdown
-                    //                     className={className}
-                    //                     onChange={(value, evt) => handleDropdownChange(value, evt, index, field)}
-                    //                     value={field.value}
-                    //                     style={{ width: field?.inputWidth }}
-                    //                     upward={false}
-                    //                     disabled={!!field.disabled}
-                    //                     fluid
-                    //                     closeOnChange
-                    //                     selection
-                    //                     placeholder={field.placeholder || '-' + t('select') + '-'}
-                    //                     selectOnBlur={false}
-                    //                     additionPosition='bottom'
-                    //                     multiple={!!field.multiple}
-                    //                     searchable={!!field.searchable}
-                    //                     clearable={!!field.clearable}
-                    //                     options={field.options}
-                    //                 />
-                    //                 <div style={{ display: 'block' }} className={feedbackClassName}>
-                    //                     {message}
-                    //                 </div>
-                    //             </div>
-                    //             {
-                    //                 field.inputWidth
-                    //                     ?
-                    //                     null
-                    //                     :
-                    //                     <div
-                    //                         style={{
-                    //                             display: 'flex',
-                    //                             flex: field.inputWidth ? undefined : field?.inputFlex || 0.8,
-                    //                             flexDirection: 'column',
-                    //                             marginLeft: 10,
-                    //                             width: field?.inputWidth || 'auto',
-                    //                         }}
-                    //                     />
-                    //             }
-                    //         </td>
-                    //     )
-                    // }
                     if (field.type === "nonCryllic") {
                         return field.hidden ? (
                             <div key={index} />
@@ -1648,87 +1586,6 @@ const Forms = (
                             </div>
                         );
                     }
-                    // if (field.type === 'nDropdown') {
-                    //     return (
-                    //         field.hidden
-                    //             ?
-                    //             <div key={index} />
-                    //             :
-                    //             <div key={index} className={checkContainer(formContainerClassName, field.invisible)} style={{ display: 'flex', marginTop: '0.8rem' }}>
-                    //                 <label
-                    //                     style={{
-                    //                         display: 'flex',
-                    //                         flex: field.labelWidth ? undefined : field?.labelFlex || 1,
-                    //                         justifyContent: 'flex-end',
-                    //                         alignItems: field.alignItems ? field.alignItems : 'center',
-                    //                         marginRight: 10,
-                    //                         // marginTop: '1rem',
-                    //                         marginBottom: 0,
-                    //                         width: field?.labelWidth || 'auto',
-                    //                         ...field.labelStyle,
-                    //                     }}
-                    //                     className={labelClassName}
-                    //                 >
-                    //                     {field.label}
-                    //                 </label>
-                    //                 <div
-                    //                     style={{
-                    //                         display: 'flex',
-                    //                         flex: field.inputWidth ? undefined : field?.inputFlex || 1,
-                    //                         flexDirection: 'column',
-                    //                         marginLeft: 10,
-                    //                         width: field?.inputWidth || 'auto',
-                    //                     }}
-                    //                     className={fieldContainerClassName}
-                    //                 >
-                    //                     <Dropdown
-                    //                         className={className}
-                    //                         onChange={(value, evt) => handleDropdownChange(value, evt, index, field)}
-                    //                         value={field.value ? field.value : ''}
-                    //                         style={{ width: field?.inputWidth }}
-                    //                         upward={false}
-                    //                         disabled={!!field.disabled}
-                    //                         fluid
-                    //                         closeOnChange
-                    //                         selection
-                    //                         placeholder={field.placeholder || '-' + t('select') + '-'}
-                    //                         selectOnBlur={false}
-                    //                         additionPosition='bottom'
-                    //                         multiple={!!field.multiple}
-                    //                         search={!!field.search}
-                    //                         clearable={!!field.clearable}
-                    //                         options={field.options}
-                    //                     // {...field.searchable ? {searchable} : ''}
-                    //                     />
-                    //                     <div style={{ display: 'block' }} className={feedbackClassName}>
-                    //                         {message}
-                    //                     </div>
-                    //                 </div>
-                    //                 {
-                    //                     field.isExtendedButton
-                    //                         ?
-                    //                         <button className={field.isExtendedButtonClass} style={field.isExtendedButtonStyle} onClick={() => handleExtendedButtonChange(index)}>Цэвэрлэх</button>
-                    //                         : null
-                    //                 }
-                    //                 {
-                    //                     field.inputWidth
-                    //                         ?
-                    //                         null
-                    //                         :
-                    //                         <div
-                    //                             style={{
-                    //                                 display: 'flex',
-                    //                                 flex: field.inputWidth ? undefined : field?.inputFlex || 0.8,
-                    //                                 flexDirection: 'column',
-                    //                                 marginLeft: 10,
-                    //                                 width: field?.inputWidth || 'auto',
-                    //                             }}
-                    //                         />
-                    //                 }
-                    //             </div>
-                    //     )
-                    // }
-
                     if (field.type === "dropdown") {
                         return field.hidden ? (
                             <div key={index} />
@@ -2247,12 +2104,12 @@ const Forms = (
                         );
                     }
                     if (field.type === "timerange") {
-                        return field.hidden 
-                        ? 
+                        return field.hidden
+                            ?
                             (
                                 <div key={index} />
-                            ) 
-                        :   
+                            )
+                            :
                             (
                                 <div
                                     key={index}
@@ -2316,7 +2173,7 @@ const Forms = (
                                         />
                                     )}
                                 </div>
-                        );
+                            );
                     }
                     if (field.type === "textArea") {
                         return field.hidden ? (
