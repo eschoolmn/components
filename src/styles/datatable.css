@@ -62,7 +62,7 @@ table.custom-dt {
     }
 
     >tbody {
-        >tr > {
+        >tr {
 
             >td,
             th {
@@ -81,13 +81,6 @@ table.custom-dt {
     border-radius: 6px;
     box-shadow: 0 1px 10px 0 rgba(145, 155, 192, 0.3);
     z-index: 100000;
-
-    >.dt-cm-item {
-        &:first-of-type {
-        }
-        &:last-of-type {
-        }
-    }
 }
 
 .dt-cm-item {
