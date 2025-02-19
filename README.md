@@ -1,19 +1,19 @@
-# dem-design
+# eSchool platform
 
-Digital Edu Management UI Components.
+eSchool website UI Components.
 
 ## 📦 Installation
 
 ```sh
-npm install dem-design
+npm install @eschool/components
 ```
 
 ## 🚀 Usage
 
 ```jsx
 import React from "react";
-import { Tree } from "dem-design";
-import "dem-design/styles/global.css"; // CSS file
+import { Tree } from "@eschool/components";
+import "@eschool/components/styles/global.css"; // CSS file
 
 const treeData = [
   {
@@ -41,15 +41,7 @@ export default App;
 
 Git Clone
 ```sh
-git clone https://github.com/temuujin-0/dem-design.git or git@github.com:ant-design/ant-design.git
-```
-
-Git Publish
-```sh
-git add .
-git commit -m "any"
-git pull origin main
-git push origin main
+git clone https://github.com/eschoolmn/components.git
 ```
 
 🏗Build
@@ -69,12 +61,6 @@ npm version major  # Breaking changes
 npm publish --access public
 ```
 
-🔨Conflicting Packages Fixing
-```sh
-rm -rf node_modules package-lock.json
-npm cache clean --force
-npm install
-```
 
 ## 📜 License
 
